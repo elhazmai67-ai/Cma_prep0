@@ -1,0 +1,14 @@
+{
+  "appId": "com.arbaz.cmaprep.studio",
+  "appName": "CMA Prep",
+  "webDir": "www",
+  "backgroundColor": "#f6f6f1",
+  "android": {
+    "adjustMarginsForEdgeToEdge": "auto",
+    "minWebViewVersion": 105
+  },
+  "server": {
+    "androidScheme": "https",
+    "errorPath": "unsupported.html"
+  }
+}
