@@ -1,6 +1,16 @@
-# CMA Prep — Purple Planner Upgrade v2.0.1
+# CMA Prep — Purple Planner Upgrade v2.0.2
 
 Apni raat ko kal ka plan tayyar karo: goal, morning note, apne subjects/chapters aur exact time ke study blocks. Ye pehle diye gaye CMA-Prep-Android-v1 project ka upgrade hai.
+
+## v2.0.2 backup fix
+
+- Long break skip karke 5 ya zyada focus sessions complete karne par purana backup check galti se valid counter ko reject karta tha. Export aur restore ab is valid counter ko accept karte hain. Counter, recorded study time aur existing progress ko reset nahi kiya jata.
+- Normal backup mein ab app version bhi included hai. Purane valid v1/v2 JSON backups ab bhi supported hain; sender aur receiver ko latest APK par update karo.
+- Kisi aur data issue par persistent error mein relevant section dikhega. **Save recovery file** poora current state aur exact stored JSON copy export karta hai. `CMA-Prep-Recovery-...json` repair ke liye hai; normal restore use accept nahi karta. Is file ko normal successful backup nahi bataya jata.
+- Native share/save cancel ya failure ko success nahi bataya jata. File import ke errors ab screen par rehte hain.
+- Restore ke baad recipient ka existing data replace hota hai; preview aur **Restore this backup** confirmation required hain. Recipient ki previous data copy undo ke liye rakhi jati hai.
+
+Agar current version mein backup export hi fail ho raha hai, **app uninstall/reset/clear data mat karo**. Isi original app ID aur certificate wale APK ko existing app ke upar Update install karo, phir backup try karo. Error phir aaye to **Save recovery file** se JSON nikal kar error ke saath share karo; recovery file ko check/repair kiye bina restore nahi karna.
 
 ## v2.0.1 button fix
 
@@ -25,7 +35,7 @@ The existing app ID, signing certificate, storage key and saved data schema are 
 2. ZIP extract karo. Apni existing GitHub repository mein project files ko unke same paths par upload/replace karo. Neeche folder list di hai.
 3. `signing/cma-dev.p12.base64` ko isi project ke version ke saath rakho. Ye v1 wala hi certificate hai. App ID, `androidScheme`, hostname aur storage key change mat karo.
 4. Changes `main` par commit karo. **Actions → Build CMA Prep Android APK** mein latest commit ka run kholo; zarurat par **Run workflow → main** dabao.
-5. Green tick ke baad **Artifacts → CMA-Prep-Android-v2.0.1-APK** download karo. Artifact ZIP extract karke `app-debug.apk` kholo.
+5. Green tick ke baad **Artifacts → CMA-Prep-Android-v2.0.2-APK** download karo. Artifact ZIP extract karke `app-debug.apk` kholo.
 6. **Existing app ke upar Update** install karo. Purana app uninstall ya uska data clear mat karo.
 7. Pehle apne subjects, completed lectures aur notes check karo. Phir Home → **Plan tomorrow** kholo.
 
@@ -54,7 +64,7 @@ Logo ka exact path **`www/assets/cma-logo.png`** hai. Folder spelling `assets` h
 - Same bundled web origin: `https://localhost` (same Capacitor `androidScheme`, unchanged default hostname).
 - Same native state key: `cma-prep-android-v1`. Website key `cma-prep-studio-demo-v1` bhi same hai.
 - Same v1 development signing certificate, SHA-256: `be12b2348b99dcbd0c986c654f6a535c65d0dac01b5a9b4ed8f4e21865a33998`.
-- New versionCode: `201000 + GitHub run number`; versionName: `2.0.1.<run number>`.
+- New versionCode: `202000 + GitHub run number`; versionName: `2.0.2.<run number>`.
 - Existing subjects, chapters, notes, dates, tests, archived groups, task IDs, planner blocks and focus records are reused. New day notes/readiness fields are additive. Navigation no longer rebuilds or reschedules saved blocks.
 - Before the first v2 write, the existing JSON state is copied once to `<existing-key>-before-upgrade-2`. Settings → **Before this upgrade → Export** saves that copy. The copy is local to this device; export your own external backup as well.
 - If the safety copy cannot be written or saved data cannot be parsed, original data is protected from overwrites and an export/recovery screen is shown.
@@ -63,6 +73,8 @@ Logo ka exact path **`www/assets/cma-logo.png`** hai. Folder spelling `assets` h
 This is a personal/testing APK with the same public development certificate used by v1. A Play Store release requires a private production signing setup. Do not change the signing key while updating this existing test installation.
 
 ## Verification
+
+- 61 backup/export/transfer/recovery checks passed on each build: the original v2.0.1 failure after five focus sessions, no reset on update, export, file selection and confirmation on a separate recipient, reload, undo, old backups, invalid-data rejection, exact recovery copy, and cancelled/failed native sharing. Together with the 110 earlier checks, 171 code-level assertions pass per build. These tests simulate DOM events and native sharing; real phone file-picker/share/upgrade tests remain pending.
 
 - 91 upgrade/data assertions plus 19 form-submit regression checks passed against the public demo files and separately against the actual packaged Android `www` files. The form tests now reproduce browser-style named input properties, including the original failed Add button.
 - Checks covered v1 → v2 data preservation, old task retention across later dates, exact pre-upgrade copy, repeat reloads, storage failures, malformed-data protection, custom blocks, overlap rejection, rename/delete behavior, other-level isolation, next-day Home display, v1/v2 backup restore, running focus records, timed mocks and native backup routing.
