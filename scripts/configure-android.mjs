@@ -18,5 +18,5 @@ const signing=`    // CMA DEVELOPMENT SIGNING\n    signingConfigs {\n        deb
 if(!gradle.includes('// CMA DEVELOPMENT SIGNING')){if(!/android\s*\{/.test(gradle))throw Error('Android Gradle block was not found.');gradle=gradle.replace(/android\s*\{/,'android {\n'+signing)}
 const number=Number(process.env.CMA_BUILD_NUMBER||process.env.GITHUB_RUN_NUMBER||1);if(!Number.isInteger(number)||number<1||number>2000000000)throw Error('Invalid build number.');
 if(!/versionCode\s+\d+/.test(gradle)||!/versionName\s+"[^"]+"/.test(gradle))throw Error('Android version fields were not found.');
-gradle=gradle.replace(/versionCode\s+\d+/,'versionCode '+(1000+number)).replace(/versionName\s+"[^"]+"/,'versionName "1.0.'+number+'"');fs.writeFileSync(gradlePath,gradle);
-console.log('Green CMA launcher icon, development signing and Android version configured.');
+gradle=gradle.replace(/versionCode\s+\d+/,'versionCode '+(201000+number)).replace(/versionName\s+"[^"]+"/,'versionName "2.0.1.'+number+'"');fs.writeFileSync(gradlePath,gradle);
+console.log('Purple CMA launcher icon, development signing and Android version configured.');
