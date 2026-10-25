@@ -1,6 +1,0 @@
-node_modules/
-android/
-www/native.js
-signing/cma-dev.p12
-*.log
-.DS_Store
