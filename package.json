@@ -1,0 +1,25 @@
+{
+  "name": "cma-prep-study-studio",
+  "version": "2.0.1",
+  "private": true,
+  "description": "CMA study planner v2: plan tomorrow, custom blocks and purple branding",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "configure:android": "node scripts/configure-android.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "7.4.3",
+    "@capacitor/app": "7.0.0",
+    "@capacitor/core": "7.4.3",
+    "@capacitor/filesystem": "7.0.0",
+    "@capacitor/share": "7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.4.3",
+    "esbuild": "0.25.5"
+  }
+}
