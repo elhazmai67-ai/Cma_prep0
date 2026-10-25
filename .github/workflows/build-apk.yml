@@ -19,46 +19,36 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
-
       - name: Install JavaScript dependencies
         run: npm install --no-audit --no-fund
-
       - name: Check source files
         run: npm run check
-
       - name: Bundle native file sharing
         run: npm run build
-
       - name: Generate Android project
         run: npx cap add android
-
       - name: Copy app and native plugins
         run: npx cap sync android
-
       - name: Configure logo and development signing
         run: npm run configure:android
-
       - name: Build installable test APK
         working-directory: android
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
-
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: CMA-Prep-Android-APK
+          name: CMA-Prep-Android-v2.0.1-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 30
