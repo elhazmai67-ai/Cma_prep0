@@ -1,1 +1,1 @@
-window.CMA_BUILD={android:true,version:'2.0.2'};
+window.CMA_BUILD={android:true,version:'2.0.3'};

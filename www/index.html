@@ -18,10 +18,10 @@
 @media(max-width:720px){.page-head p{font-size:12px}.subject-card h3{font-size:12px;min-height:54px}.subject-card .sub-meta{font-size:10px;line-height:1.6}.subject-foot{font-size:9px}.stat-bottom{font-size:9px}.stat-top{font-size:10px}.stat-top svg{display:none}.subject-top .pill{font-size:9px}.queue-row{padding:17px 14px}.queue-row h3{font-size:12px}.queue-row p{font-size:10px;margin-top:4px}.queue-row .queue-action{width:36px;height:36px}.timer-panel>p{font-size:10px;line-height:1.7}.timer-foot{font-size:9px}.insight-panel p{font-size:11px}.insight-panel .text-btn{font-size:10px}.lecture-row h3{font-size:12px}.lecture-row p{font-size:10px}.round-button{font-size:10px;min-height:42px}.chapter-title h3{font-size:13px}.chapter-card summary{font-size:11px;min-height:25px}.result-row h3{font-size:12px}.result-row p{font-size:10px}.plan-card p{font-size:12px}.page-footer{font-size:9px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
-<link rel="stylesheet" href="focus.css?v=2.0.2">
-<link rel="stylesheet" href="features.css?v=2.0.2">
-<link rel="stylesheet" href="purple.css?v=2.0.2">
-<link rel="icon" type="image/png" href="assets/cma-logo.png?v=2.0.2">
+<link rel="stylesheet" href="focus.css?v=2.0.3">
+<link rel="stylesheet" href="features.css?v=2.0.3">
+<link rel="stylesheet" href="purple.css?v=2.0.3">
+<link rel="icon" type="image/png" href="assets/cma-logo.png?v=2.0.3">
 </head>
 <body>
 <aside class="sidebar" aria-label="Main navigation"></aside>
@@ -30,7 +30,7 @@
 <dialog id="modal"></dialog><div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="app-config.js"></script>
 <script src="native.js"></script>
-<script src="upgrade-guard.js?v=2.0.2"></script>
+<script src="upgrade-guard.js?v=2.0.3"></script>
 <script>
 'use strict';
 const ICONS={book:'<path d="M3 4.5h6a4 4 0 0 1 3 1.5 4 4 0 0 1 3-1.5h6v15h-6a4 4 0 0 0-3 1.5 4 4 0 0 0-3-1.5H3z"/><path d="M12 6v15M6 9h3m-3 4h3m6-4h3m-3 4h3"/>',home:'<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',play:'<path d="m9 5 11 7-11 7z"/>',video:'<rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/>',repeat:'<path d="M20 8a8 8 0 0 0-14-3L3 8m0-5v5h5m-4 8a8 8 0 0 0 14 3l3-3m0 5v-5h-5"/>',chart:'<path d="M4 3v18h17M8 16v-5m5 5V7m5 9v-3"/>',check:'<path d="m5 12 4 4L19 6"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',chevron:'<path d="m9 5 7 7-7 7"/>',plus:'<path d="M12 5v14M5 12h14"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-14 4h3m4 0h3"/>',settings:'<path d="m9 3-.5 3-2 1-2.8-1-2 3.5L4 12l-2.3 2.5 2 3.5 2.8-1 2 1L9 21h6l.5-3 2-1 2.8 1 2-3.5L20 12l2.3-2.5-2-3.5-2.8 1-2-1L15 3z"/><circle cx="12" cy="12" r="3"/>',moon:'<path d="M20.5 13A8.5 8.5 0 0 1 11 3a9 9 0 1 0 9.5 10z"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>',spark:'<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>',leaf:'<path d="M20 3C8 2 2 8 5 15s15 6 15-12Z"/><path d="M3 21 15 9m-8 8v-6m6 0h5"/>',pause:'<path d="M8 5v14M16 5v14"/>',reset:'<path d="M3 10a9 9 0 1 1 1 7m-1-7V4m0 6h6"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8 12 3 3 5-6"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',briefcase:'<rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V3h8v4M3 12a23 23 0 0 0 18 0m-9 0v3"/>',calculator:'<rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h1m6 0h1m-8 4h1m6 0h1m-8 4h1m6 0h1"/>',layers:'<path d="m12 3 10 5-10 5L2 8zM2 12l10 5 10-5M2 16l10 5 10-5"/>',flag:'<path d="M4 22V3m0 1c6-4 10 4 16 0v11c-6 4-10-4-16 0"/>'};
@@ -55,7 +55,7 @@ function days(date){if(!date)return null;const a=new Date(date+'T00:00:00'),b=ne
 const formatDate=(d,opts={day:'numeric',month:'short',year:'numeric'})=>d?new Date(d+'T00:00:00').toLocaleDateString('en-GB',opts):'Choose a date';
 function weak(){const m={};for(const t of L().tests){if(!t.chapter)continue;const k=t.subject+'|'+t.chapter;if(!m[k])m[k]={subject:t.subject,chapter:t.chapter,scores:[]};m[k].scores.push(t.score/t.max*100)}return Object.values(m).map(x=>({...x,percent:Math.round(x.scores.reduce((a,b)=>a+b,0)/x.scores.length)})).filter(x=>x.percent<50&&L().subjects.some(s=>s.id===x.subject)).sort((a,b)=>a.percent-b.percent)}
 const nav=[['home','home','Home'],['lectures','book','Subjects'],['focus','clock','Focus'],['revision','repeat','Revision'],['tests','chart','Tests']];
-function brand(){return `<div class="row brand"><div class="brand-mark app-logo"><img src="assets/cma-logo.png?v=2.0.2" alt="CMA Prep logo" width="38" height="38"></div><div><div class="brand-name">CMA Prep<span style="color:var(--green)">.</span></div><div class="brand-note">YOUR STUDY SPACE</div></div></div>`}
+function brand(){return `<div class="row brand"><div class="brand-mark app-logo"><img src="assets/cma-logo.png?v=2.0.3" alt="CMA Prep logo" width="38" height="38"></div><div><div class="brand-name">CMA Prep<span style="color:var(--green)">.</span></div><div class="brand-note">YOUR STUDY SPACE</div></div></div>`}
 function levels(){return `<div class="level-switch" aria-label="CMA level"><button data-action="level" data-level="inter" class="${S.level==='inter'?'active':''}" aria-pressed="${S.level==='inter'}">CMA Inter</button><button data-action="level" data-level="final" class="${S.level==='final'?'active':''}" aria-pressed="${S.level==='final'}">CMA Final</button></div>`}
 function renderShell(){document.documentElement.dataset.theme=S.theme;document.querySelector('.sidebar').innerHTML=brand()+`<div class="nav-label">WORKSPACE</div><nav class="nav-list">${nav.map(([p,i,n])=>`<button class="nav-button ${page===p?'active':''}" data-action="nav" data-page="${p}" ${page===p?'aria-current="page"':''}>${icon(i)}${n}${page===p?'<span class="nav-end">›</span>':''}</button>`).join('')}</nav><div class="sidebar-bottom"><div class="side-note">${icon('leaf')}<p>Progress, at your pace.</p><small>A little focus every day goes a long way.</small></div><button class="side-settings" data-action="settings">${icon('settings')} Workspace settings</button></div>`;
  document.querySelector('.topbar').innerHTML=`<div class="mobile-brand">${brand()}</div><div class="breadcrumb">Study workspace ${icon('chevron')} <strong>${nav.find(x=>x[0]===page)?.[2]}</strong></div><div class="topbar-right"><span class="demo-label"><i class="dot"></i> Saved on this device</span>${levels()}<button class="icon-btn" data-action="theme" aria-label="Switch to ${S.theme==='dark'?'light':'dark'} theme">${icon(S.theme==='dark'?'sun':'moon')}</button><button class="icon-btn mobile-settings" data-action="settings" aria-label="Workspace settings" style="display:${innerWidth<=720?'grid':'none'}">${icon('settings')}</button><div class="avatar" aria-label="Your workspace">ME</div></div>`;
@@ -97,14 +97,14 @@ document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.cu
 document.addEventListener('input',e=>{if(e.target.id==='lecture-text')e.target.setCustomValidity('')});
 document.addEventListener('visibilitychange',()=>tick());let mobile=innerWidth<=720;window.addEventListener('resize',()=>{const m=innerWidth<=720;if(m!==mobile){mobile=m;renderShell()}});
 </script>
-<script src="focus.js?v=2.0.2"></script>
-<script src="demo-data.js?v=2.0.2"></script>
-<script src="study.js?v=2.0.2"></script>
-<script src="practice.js?v=2.0.2"></script>
-<script src="subjects.js?v=2.0.2"></script>
-<script src="planner.js?v=2.0.2"></script>
-<script src="manage.js?v=2.0.2"></script>
-<script src="backup.js?v=2.0.2"></script>
+<script src="focus.js?v=2.0.3"></script>
+<script src="demo-data.js?v=2.0.3"></script>
+<script src="study.js?v=2.0.3"></script>
+<script src="practice.js?v=2.0.3"></script>
+<script src="subjects.js?v=2.0.3"></script>
+<script src="planner.js?v=2.0.3"></script>
+<script src="manage.js?v=2.0.3"></script>
+<script src="backup.js?v=2.0.3"></script>
 <script src="android-app.js"></script>
 </body>
 </html>

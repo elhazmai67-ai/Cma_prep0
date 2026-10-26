@@ -5,7 +5,7 @@ function backupSnapshot(){
   recordFocus();updateQuizTimers();demoFeatures();
   const state=JSON.parse(JSON.stringify(S)),p=state.pomodoro;p.running=false;p.endsAt=0;p.segmentId=null;p.notice='Restored focus timer is paused. Press Start when you are ready.';
   for(const level of ['inter','final']){const run=state.features.levels[level].quiz.active;if(run?.deadline)run.backupRemainingMs=Math.max(0,run.deadline-Date.now())}
-  return {format:'cma-prep-demo-backup',version:1,appVersion:'2.0.2',createdAt:new Date().toISOString(),state};
+  return {format:'cma-prep-demo-backup',version:1,appVersion:'2.0.3',createdAt:new Date().toISOString(),state};
 }
 function validateBackup(input){
   const envelope=typeof input==='string'?JSON.parse(input):JSON.parse(JSON.stringify(input));
@@ -53,7 +53,7 @@ function showBackupExportProblem(error){
 async function exportRecoveryBackup(){
   try{
     // Do not repair, filter, validate or overwrite the source while rescuing it.
-    const recovery={format:'cma-prep-recovery',version:1,appVersion:'2.0.2',createdAt:new Date().toISOString(),diagnostic:backupDiagnostic,state:S,savedState:localStorage.getItem(KEY)};
+    const recovery={format:'cma-prep-recovery',version:1,appVersion:'2.0.3',createdAt:new Date().toISOString(),diagnostic:backupDiagnostic,state:S,savedState:localStorage.getItem(KEY)};
     const saved=await downloadFile(JSON.stringify(recovery,null,2),'application/json','CMA-Prep-Recovery-'+localDateKey(new Date())+'.json');
     const message=saved?'Recovery file '+(window.CMA_NATIVE?.isNative?'shared':'downloaded')+'. Keep it for repair; it is not a restorable backup yet.':'Recovery save cancelled. Your data stays on this device.';
     const status=document.getElementById('backup-problem-status');if(status)status.textContent=message;toast(message);
