@@ -1,6 +1,12 @@
-# CMA Prep — Purple Planner Upgrade v2.0.2
+# CMA Prep — Purple Planner Upgrade v2.0.3
 
 Apni raat ko kal ka plan tayyar karo: goal, morning note, apne subjects/chapters aur exact time ke study blocks. Ye pehle diye gaye CMA-Prep-Android-v1 project ka upgrade hai.
+
+## v2.0.3 subject border fix
+
+Green/purple subject cards used fixed pale borders intended for light mode. They now use the active theme's border colour: muted purple in dark mode and a soft border in light mode. This removes the bright white-looking outlines in the screenshot. Keyboard focus indicators remain available.
+
+Only card styling and release/cache version metadata changed. Existing subjects, lecture progress, plans, backup logic, app identity, stored data and signing certificate are retained. Asset/source checks passed; real browser and Android visual verification remain pending because managed preview is unavailable.
 
 ## v2.0.2 backup fix
 
@@ -35,7 +41,7 @@ The existing app ID, signing certificate, storage key and saved data schema are 
 2. ZIP extract karo. Apni existing GitHub repository mein project files ko unke same paths par upload/replace karo. Neeche folder list di hai.
 3. `signing/cma-dev.p12.base64` ko isi project ke version ke saath rakho. Ye v1 wala hi certificate hai. App ID, `androidScheme`, hostname aur storage key change mat karo.
 4. Changes `main` par commit karo. **Actions → Build CMA Prep Android APK** mein latest commit ka run kholo; zarurat par **Run workflow → main** dabao.
-5. Green tick ke baad **Artifacts → CMA-Prep-Android-v2.0.2-APK** download karo. Artifact ZIP extract karke `app-debug.apk` kholo.
+5. Green tick ke baad **Artifacts → CMA-Prep-Android-v2.0.3-APK** download karo. Artifact ZIP extract karke `app-debug.apk` kholo.
 6. **Existing app ke upar Update** install karo. Purana app uninstall ya uska data clear mat karo.
 7. Pehle apne subjects, completed lectures aur notes check karo. Phir Home → **Plan tomorrow** kholo.
 
@@ -64,7 +70,7 @@ Logo ka exact path **`www/assets/cma-logo.png`** hai. Folder spelling `assets` h
 - Same bundled web origin: `https://localhost` (same Capacitor `androidScheme`, unchanged default hostname).
 - Same native state key: `cma-prep-android-v1`. Website key `cma-prep-studio-demo-v1` bhi same hai.
 - Same v1 development signing certificate, SHA-256: `be12b2348b99dcbd0c986c654f6a535c65d0dac01b5a9b4ed8f4e21865a33998`.
-- New versionCode: `202000 + GitHub run number`; versionName: `2.0.2.<run number>`.
+- New versionCode: `203000 + GitHub run number`; versionName: `2.0.3.<run number>`.
 - Existing subjects, chapters, notes, dates, tests, archived groups, task IDs, planner blocks and focus records are reused. New day notes/readiness fields are additive. Navigation no longer rebuilds or reschedules saved blocks.
 - Before the first v2 write, the existing JSON state is copied once to `<existing-key>-before-upgrade-2`. Settings → **Before this upgrade → Export** saves that copy. The copy is local to this device; export your own external backup as well.
 - If the safety copy cannot be written or saved data cannot be parsed, original data is protected from overwrites and an export/recovery screen is shown.

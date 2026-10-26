@@ -1,6 +1,6 @@
 {
   "name": "cma-prep-study-studio",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": true,
   "description": "CMA study planner v2: plan tomorrow, custom blocks and purple branding",
   "engines": {
